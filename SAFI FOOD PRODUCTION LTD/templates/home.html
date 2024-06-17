@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <style>
+        .featured-products {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .product {
+    text-align: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 200px;
+    }
+    .product img {
+    width: 100%;
+    height: auto;
+    }
+
+    .cta {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    }
+
+.cta a {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    }
+
+.cta a:hover {
+    background-color: #555;
+    }
+    </style>
+
+    <h2>Home</h2>
+    <p>Welcome to SAFI FOODS, your source for the best quality beef meat.</p>
+    <p>We supply both boned meat(with bones) and steak(minced meat))</p>
+    <div class="featured-products">
+        {% for product in products %}
+        <div class="product">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cta">
+        <p>Place your order here:<a href="{% url 'products' %}">Order Now</a></p>
+    </div>
+
+{% endblock content %} 

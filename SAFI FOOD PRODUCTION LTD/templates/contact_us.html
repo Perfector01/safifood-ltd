@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    .contact{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+    }
+</style>
+    <div class="contact">
+        <h2>Contact Us</h2>
+
+        <p>We are located in Mukuyu Town next to Alpa Petrol Station</p>
+        <p>P.O BOX 84-10200 MURANG’A</p><br><br>
+        <p>If you have any questions or need more information, please call our customer care for inquiries:</p>
+        <p><strong><a href="tel:+{{ contact_info.phone }}">Call Customer Care{{ contact_info.phone }}</a></strong></p>
+        <p><strong><a href="mailto:{{ contact_info.email }}?subject=Inquiry">Email us {{ contact_info.email }}</a></strong></p>
+
+        
+        <p>We are also available via WhatsApp, Click the whatsapp Icon below to chat with us:</p>
+        <a href="https://wa.me/qr/HBQ2UISX7ZXLB1" target="_blank">
+            {% for icon in whatsapp_icons %}
+            <img src="{{ icon.image.url }}" alt="{{ icon.alt_text }}"></a> 
+            {% endfor %}
+
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safi Food</title>
+    <style>
+        /* Ensure the body and html take the full height of the viewport */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Container that wraps all the content */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main content should take all available space */
+        .main-content {
+            flex: 1;
+        }
+
+        
+       
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        {% include 'nav.html' %}
+        <div class="main-content">
+            {% block content %}
+            <!-- Page-specific content will go here -->
+            {% endblock content %}
+        </div>
+        {% include 'footer.html' %}
+    </div>
+</body>
+</html>
